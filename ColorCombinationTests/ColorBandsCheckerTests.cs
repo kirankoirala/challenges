@@ -25,5 +25,18 @@ namespace ColorCombinationTests
 
             _validator.Received().isValid(colorSetFromUser);
         }
+
+
+        [Test()]
+        public void CheckBands_Throws_Exception_If_Not_Valid()
+		{
+			var colorSetFromUser = new UserInputColorSet();
+            var exceptionMessage = "Big Exception";
+
+            _validator.When(v => v.isValid(colorSetFromUser)).Do(v => { throw new Exception(exceptionMessage); });
+
+			var ex = Assert.Throws<Exception>(() => _checker.CheckBands(colorSetFromUser));
+            Assert.That(ex.Message, Is.EqualTo(exceptionMessage));
+		}
     }
 }

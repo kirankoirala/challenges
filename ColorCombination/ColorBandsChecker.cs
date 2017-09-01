@@ -11,7 +11,13 @@ namespace ColorCombination
 
         public string CheckBands(UserInputColorSet colorSets){
            
-            _validator.isValid(colorSets);
+            try{
+                var isValid = _validator.isValid(colorSets);
+            }
+            catch(Exception ex){
+                throw new Exception(ex.Message);
+            }
+
             return null;//just to compile successfully for now
         }
     }
