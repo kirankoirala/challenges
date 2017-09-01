@@ -7,11 +7,24 @@ namespace ColorCombination
 
         public bool isValid(UserInputColorSet userInput)
         {
-            ValidateInput(userInput);
-            return false;
+            CheckForNullOrEmptyInput(userInput);
+            CheckForInvalidSet(userInput);
+
+            return true;
         }
 
-        private static void ValidateInput(UserInputColorSet userInput)
+        private static void CheckForInvalidSet(UserInputColorSet userInput)
+        {
+            foreach (string input in userInput.ColorSets)
+            {
+                if (input.Split(',').Length != 2)
+                {
+                    throw new Exception("Invalid - one of the set is invalid - not in a pair");
+                }
+            }
+        }
+
+        private static void CheckForNullOrEmptyInput(UserInputColorSet userInput)
         {
             if (userInput == null)
             {
