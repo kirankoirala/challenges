@@ -35,6 +35,8 @@
     <Compile Include="InputValidator.cs" />
     <Compile Include="IInputValidator.cs" />
     <Compile Include="ColorBandsChecker.cs" />
+    <Compile Include="ICombinationFinder.cs" />
+    <Compile Include="CombinationFinder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -36,6 +36,7 @@
   <ItemGroup>
     <Compile Include="InputValidatorTests.cs" />
     <Compile Include="ColorBandsCheckerTests.cs" />
+    <Compile Include="CombinationFinderTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

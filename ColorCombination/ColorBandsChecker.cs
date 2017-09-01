@@ -6,22 +6,44 @@ namespace ColorCombination
 {
     public class ColorBandsChecker
     {
-        private IInputValidator _validator;
-        public ColorBandsChecker(IInputValidator validator)
+		private IInputValidator _validator;
+        private ICombinationFinder _combinationFinder;
+        public ColorBandsChecker(IInputValidator validator, ICombinationFinder finder)
         {
             _validator = validator;
+            _combinationFinder = finder;
         }
 
-        public string CheckBands(UserInputColorSet colorSets){
-           
+        public string CheckColorBands(UserInputColorSet colorSets){
+
             try
             {
                 _validator.Validate(colorSets);
-
                 var colorList = ConvertToList(colorSets);
 
-                while(colorList.Count > 0){
-                    //call the CombinationValidator
+                var startColor = GetStartColor(colorList.First());
+                var endColor = GetEndColor(colorList.First());
+
+                colorList.RemoveAt(0);
+                var result = new List<string>();
+
+                var possibleCombinationExists = true;
+                while (possibleCombinationExists)
+                {
+                    if (colorList.Count()==0){
+                        Console.WriteLine(result.ToString());
+                        return result.ToString();
+                    }
+
+                    var newCombination = _combinationFinder.FindCombinationInList(colorList, startColor, endColor);
+                    if (newCombination != "Error"){
+                        result.Add(newCombination);
+                        colorList.Remove(newCombination);
+                    }
+                    else{
+                        return "Cannot unlock master panel";
+                    }
+
                 }
 
             }
@@ -32,7 +54,18 @@ namespace ColorCombination
             return null;//just to compile successfully for now
         }
 
-        private static List<string> ConvertToList(UserInputColorSet colorSets)
+        private static string GetStartColor(string block)
+        {
+            return block.Split(',')[0].ToUpper().Trim();
+        }
+
+		private static string GetEndColor(string block)
+		{
+			return block.Split(',')[1].ToUpper().Trim();
+		}
+
+
+		private static List<string> ConvertToList(UserInputColorSet colorSets)
         {
             return colorSets.ColorSets.Select(u => u).ToList();
         }
