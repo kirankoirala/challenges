@@ -2,6 +2,6 @@
 {
     public interface IInputValidator
     {
-        bool isValid(UserInputColorSet userInput);
+        bool Validate(UserInputColorSet userInput);
     }
 }

@@ -6,7 +6,7 @@ namespace ColorCombination
     public class InputValidator:IInputValidator
     {
 
-        public bool isValid(UserInputColorSet userInput)
+        public bool Validate(UserInputColorSet userInput)
         {
             CheckForNullOrEmptyInput(userInput);
             CheckForInvalidSet(userInput);

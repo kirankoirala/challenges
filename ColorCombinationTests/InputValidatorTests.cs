@@ -20,14 +20,14 @@ namespace ColorCombinationTests
         [Test()]
         public void Validate_Throws_InvalidInput_For_Null_Input()
         {
-            var ex = Assert.Throws<Exception>(() => _validator.isValid(null));
+            var ex = Assert.Throws<Exception>(() => _validator.Validate(null));
             Assert.That(ex.Message, Is.EqualTo("Invalid - Null input"));
         }
 
 		[Test()]
 		public void Validate_Throws_InvalidInput_For_UnInitialized_Input_List()
 		{
-			var ex = Assert.Throws<Exception>(() => _validator.isValid(_userInput));
+			var ex = Assert.Throws<Exception>(() => _validator.Validate(_userInput));
 			Assert.That(ex.Message, Is.EqualTo("Invalid - Uninitialized Color Set"));
 		}
 
@@ -37,7 +37,7 @@ namespace ColorCombinationTests
 		{
             _userInput.ColorSets = new string[] { };
 
-			var ex = Assert.Throws<Exception>(() => _validator.isValid(_userInput));
+			var ex = Assert.Throws<Exception>(() => _validator.Validate(_userInput));
 			Assert.That(ex.Message, Is.EqualTo("Invalid - Empty Color Set"));
 		}
 
@@ -48,7 +48,7 @@ namespace ColorCombinationTests
 		{
 			_userInput.ColorSets = new string[] {input };
 
-			var ex = Assert.Throws<Exception>(() => _validator.isValid(_userInput));
+			var ex = Assert.Throws<Exception>(() => _validator.Validate(_userInput));
 			Assert.That(ex.Message, Is.EqualTo("Invalid - one of the set is invalid - not in a pair"));
 		}
 
@@ -58,7 +58,7 @@ namespace ColorCombinationTests
 		{
             _userInput.ColorSets = new string[] { "Red,Blue", "Green,Red", "Orange,Yellow" };
 
-			var validationResult = _validator.isValid(_userInput);
+			var validationResult = _validator.Validate(_userInput);
             Assert.True(validationResult);
 		}
     }
