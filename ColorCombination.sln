@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorCombination", "ColorCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorCombinationTests", "ColorCombinationTests\ColorCombinationTests.csproj", "{C5D4D5E5-C6C5-49DC-A2B8-FA012592CE43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Door", "Door\Door.csproj", "{57910285-15FD-4C41-BBF7-B2EFEAAD8833}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +21,9 @@ Global
 		{C5D4D5E5-C6C5-49DC-A2B8-FA012592CE43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5D4D5E5-C6C5-49DC-A2B8-FA012592CE43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5D4D5E5-C6C5-49DC-A2B8-FA012592CE43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57910285-15FD-4C41-BBF7-B2EFEAAD8833}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57910285-15FD-4C41-BBF7-B2EFEAAD8833}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57910285-15FD-4C41-BBF7-B2EFEAAD8833}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57910285-15FD-4C41-BBF7-B2EFEAAD8833}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

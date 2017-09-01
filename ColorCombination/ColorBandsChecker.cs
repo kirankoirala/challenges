@@ -31,14 +31,15 @@ namespace ColorCombination
                 while (possibleCombinationExists)
                 {
                     if (colorList.Count()==0){
-                        Console.WriteLine(result.ToString());
-                        return result.ToString();
+                        var stringOutput = string.Join("\n", result.ToArray());
+                        return stringOutput;
                     }
 
                     var newCombination = _combinationFinder.FindCombinationInList(colorList, startColor, endColor);
                     if (newCombination != "Error"){
                         result.Add(newCombination);
                         colorList.Remove(newCombination);
+                        startColor = GetEndColor(newCombination);
                     }
                     else{
                         return "Cannot unlock master panel";
@@ -51,7 +52,7 @@ namespace ColorCombination
                 throw new Exception(ex.Message);
             }
 
-            return null;//just to compile successfully for now
+           return "Cannot unlock master panel";
         }
 
         private static string GetStartColor(string block)
