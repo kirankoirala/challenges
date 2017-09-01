@@ -1,18 +1,10 @@
 ﻿using System;
 using ColorCombination;
-using SimpleInjector;
 
 namespace Door
 {
     class Program
     {
-		static readonly Container container;
-
-        static Program()
-		{
-            container = new Container();
-            ConfigureInjector();
-		}
 
         public static void Main(string[] args)
         {
@@ -40,10 +32,5 @@ namespace Door
 
         }
 
-        private static void ConfigureInjector(){
-			container.Register<ICombinationFinder, CombinationFinder>();
-			container.Register<IInputValidator, InputValidator>();
-			container.Verify();
-        }
     }
 }
