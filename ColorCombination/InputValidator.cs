@@ -2,7 +2,8 @@
 
 namespace ColorCombination
 {
-    public class InputValidator
+
+    public class InputValidator:IInputValidator
     {
 
         public bool isValid(UserInputColorSet userInput)
